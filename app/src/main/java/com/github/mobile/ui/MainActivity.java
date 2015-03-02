@@ -145,30 +145,30 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
     public void onNavigationDrawerItemSelected(int position) {
         if (navigationAdapter.getItem(position).getType() == TYPE_SEPERATOR)
             return;
-        Fragment fragmet;
+        Fragment fragment;
         Bundle args = new Bundle();
         switch (position) {
             case 0:
-                fragmet = new HomePagerFragment();
+                fragment = new HomePagerFragment();
                 args.putSerializable("org", org);
                 break;
             case 1:
-                fragmet = new GistsPagerFragment();
+                fragment = new GistsPagerFragment();
                 break;
             case 2:
-                fragmet = new IssueDashboardPagerFragment();
+                fragment = new IssueDashboardPagerFragment();
                 break;
             case 3:
-                fragmet = new FilterListFragment();
+                fragment = new FilterListFragment();
                 break;
             default:
-                fragmet = new HomePagerFragment();
+                fragment = new HomePagerFragment();
                 args.putSerializable("org", orgs.get(position - 5));
                 break;
         }
-        fragmet.setArguments(args);
+        fragment.setArguments(args);
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.container, fragmet).commit();
+        manager.beginTransaction().replace(R.id.container, fragment).commit();
     }
 
 }
